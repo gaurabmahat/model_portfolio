@@ -9,6 +9,7 @@
     flex: 0 0 38%;
     padding: 3rem;
     box-sizing: border-box;
+    max-width: 550px;
 }
 
 .image {
@@ -16,6 +17,7 @@
     height: auto;
     display: block;
     object-fit: cover;
+    aspect-ratio: 4 / 5;
 }
 
 .nameWrapper {

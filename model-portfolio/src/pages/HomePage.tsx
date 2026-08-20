@@ -1,5 +1,6 @@
 import Header from "../components/Header";
 import HomeSection from "../components/HomeSection";
+import PhotosSection from "../components/PhotosSection";
 
 export default function HomePage() {
     return (
@@ -7,7 +8,7 @@ export default function HomePage() {
             <Header />
             <main style={{ paddingTop: "var(--header-height)" }}>
                 <HomeSection />
-                <section id="photos" style={{ minHeight: "100vh"}}><h1>Photos</h1></section>
+                <PhotosSection />
                 <section id="about" style={{ minHeight: "100vh"}}><h1>About</h1></section>
                 <section id="contact" style={{ minHeight: "100vh"}}><h1>Contact</h1></section>
             </main>
