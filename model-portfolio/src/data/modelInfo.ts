@@ -1,0 +1,1 @@
+export const modelName = "Model Name";
