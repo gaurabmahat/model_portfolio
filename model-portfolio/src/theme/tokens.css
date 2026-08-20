@@ -1,0 +1,14 @@
+:root {
+    --color-bg: #F5F4F2;
+    --color-bg-alt: #FFFFFF;
+    --color-text: #1A1A1A;
+    --color-text-muted: #8A8A85;
+    --color-text-accent: #1A1A1A;
+
+    --font-heading: "Playfair Display", serif;
+    --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
+
+    --tracking-nav: 0.08em;
+
+    --header-height: 72px;
+}
