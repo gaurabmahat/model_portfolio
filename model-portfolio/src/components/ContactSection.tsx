@@ -1,5 +1,8 @@
 import { useState } from "react";
+import type React from "react";
 import styles from "./ContactSection.module.css";
+
+type Status = 'idle' | 'sending' | 'sent' | 'error';
 
 const ContactSection = () => {
 
@@ -9,9 +12,20 @@ const ContactSection = () => {
         email: '',
         message: '',
     })
+    const [status, setStatus] = useState<Status>('idle')
 
     function update(field: keyof typeof form, value: string) {
         setForm((prev) => ({ ...prev, [field]: value }))
+    }
+
+    function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault();
+        setStatus('sending');
+
+        setTimeout(() => {
+            console.log("Submitting form: ", form);
+            setStatus('sent')
+        }, 1000);
     }
 
     return (
@@ -20,7 +34,7 @@ const ContactSection = () => {
                 Contact
             </h2>
 
-            <form className={styles.form}>
+            <form className={styles.form} onSubmit={handleSubmit}>
                 <div className={styles.row}>
                     <div className={styles.field}>
                         <label htmlFor="name">
@@ -69,8 +83,8 @@ const ContactSection = () => {
                     />
                 </div>
 
-                <button type="submit" className={styles.submit}>
-                    Send
+                <button type="submit" className={styles.submit} disabled={status === 'sending'}>
+                    {status === 'sending' ? 'Sending...' : 'Send'}
                 </button>
             </form>
         </section>
