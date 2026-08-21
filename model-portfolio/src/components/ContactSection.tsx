@@ -3,6 +3,7 @@ import type React from "react";
 import styles from "./ContactSection.module.css";
 
 type Status = 'idle' | 'sending' | 'sent' | 'error';
+const web3formsAccessCode = "2a4ba48d-71a0-49ce-aeaf-2a2461b270f2"
 
 const ContactSection = () => {
 
@@ -31,17 +32,38 @@ const ContactSection = () => {
         return Object.keys(next).length === 0;
     }
 
-    function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
 
         if(!validation()) return;
 
         setStatus('sending');
 
-        setTimeout(() => {
-            console.log("Submitting form: ", form);
-            setStatus('sent')
-        }, 1000);
+        try {
+            const res = await fetch("https://api.web3forms.com/submit", {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+                body: JSON.stringify({
+                    access_key: web3formsAccessCode,
+                    name: `${form.name} ${form.surname}`,
+                    email: form.email,
+                    message: form.message,
+                    subject: 'Model contact form submission',
+                }),
+            });
+
+            const data = await res.json();
+
+            if(data.success) {
+                setStatus('sent');
+                setForm({ name: '', surname: '', email: '', message: '' });
+            } else {
+                setStatus('error');
+            }
+        } catch (error) {
+            console.log("Error: ", error)
+            setStatus('error')
+        }
     }
 
     return (
