@@ -11,15 +11,31 @@ const ContactSection = () => {
         surname: '',
         email: '',
         message: '',
-    })
-    const [status, setStatus] = useState<Status>('idle')
+    });
+    const [status, setStatus] = useState<Status>('idle');
+    const [errors, setErrors] = useState<Record<string, string>>({});
 
     function update(field: keyof typeof form, value: string) {
         setForm((prev) => ({ ...prev, [field]: value }))
     }
 
+    function validation() {
+        const next: Record<string, string> = {}
+
+        if (!form.name.trim()) next.name = 'Required';
+        if (!form.surname.trim()) next.surname = 'Required';
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) next.email = 'Enter a valid email';
+        if (form.message.trim().length < 2) next.message = 'Message is too short';
+
+        setErrors(next);
+        return Object.keys(next).length === 0;
+    }
+
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
+
+        if(!validation()) return;
+
         setStatus('sending');
 
         setTimeout(() => {
@@ -34,7 +50,7 @@ const ContactSection = () => {
                 Contact
             </h2>
 
-            <form className={styles.form} onSubmit={handleSubmit}>
+            <form className={styles.form} onSubmit={handleSubmit} noValidate>
                 <div className={styles.row}>
                     <div className={styles.field}>
                         <label htmlFor="name">
@@ -45,6 +61,7 @@ const ContactSection = () => {
                             value={form.name}
                             onChange={(e) => update('name', e.target.value)}
                         />
+                        {errors.name && <span className={styles.error}>{errors.name}</span>}
                     </div>
 
                     <div className={styles.field}>
@@ -56,6 +73,7 @@ const ContactSection = () => {
                             value={form.surname}
                             onChange={(e) => update('surname', e.target.value)}
                         />
+                        {errors.surname && <span className={styles.error}>{errors.surname}</span>}
                     </div>
                 </div>
 
@@ -69,6 +87,7 @@ const ContactSection = () => {
                         value={form.email}
                         onChange={(e) => update('email', e.target.value)}
                     />
+                    {errors.email && <span className={styles.error}>{errors.email}</span>}
                 </div>
 
                 <div className={styles.field}>
@@ -81,6 +100,7 @@ const ContactSection = () => {
                         value={form.message}
                         onChange={(e) => update('message', e.target.value)}
                     />
+                    {errors.message && <span className={styles.error}>{errors.message}</span>}
                 </div>
 
                 <button type="submit" className={styles.submit} disabled={status === 'sending'}>
