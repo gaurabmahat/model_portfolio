@@ -37,6 +37,9 @@ const ContactSection = () => {
 
         if(!validation()) return;
 
+        const honeypot = (e.currentTarget.elements.namedItem("botcheck") as HTMLInputElement)?.value;
+        if(honeypot) return; //bot security
+
         setStatus('sending');
 
         try {
@@ -76,13 +79,22 @@ const ContactSection = () => {
                 <p className={styles.success}>Thank You! Your message has been sent.</p>
             ) : (
                 <form className={styles.form} onSubmit={handleSubmit} noValidate>
+                    <input 
+                        type="text"
+                        name="botcheck"
+                        className={styles.honeypot}
+                        tabIndex={-1}
+                        autoComplete="off"
+                        aria-hidden="true"
+                    />
                     <div className={styles.row}>
                         <div className={styles.field}>
                             <label htmlFor="name">
                                 Name <span className={styles.required} aria-label="required">*</span>
                             </label>
                             <input 
-                                id="name" 
+                                id="name"
+                                maxLength={80} 
                                 value={form.name}
                                 onChange={(e) => update('name', e.target.value)}
                             />
@@ -94,7 +106,8 @@ const ContactSection = () => {
                                 Surname <span className={styles.required} aria-label="required">*</span>
                             </label>
                             <input
-                                id="surname" 
+                                id="surname"
+                                maxLength={80} 
                                 value={form.surname}
                                 onChange={(e) => update('surname', e.target.value)}
                             />
@@ -108,7 +121,8 @@ const ContactSection = () => {
                         </label>
                         <input 
                             id="email" 
-                            type="email" 
+                            type="email"
+                            maxLength={200} 
                             value={form.email}
                             onChange={(e) => update('email', e.target.value)}
                         />
@@ -120,7 +134,8 @@ const ContactSection = () => {
                             Message <span className={styles.required} aria-label="required">*</span>
                         </label>
                         <textarea 
-                            id="message" 
+                            id="message"
+                            maxLength={2000}
                             rows={5} 
                             value={form.message}
                             onChange={(e) => update('message', e.target.value)}
