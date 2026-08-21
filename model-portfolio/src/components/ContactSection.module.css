@@ -98,6 +98,10 @@
     overflow: hidden;
 }
 
+.required {
+    color: #b23628;
+}
+
 @media (max-width: 600px) {
     .row {
         flex-direction: column;

@@ -54,7 +54,7 @@ const ContactSection = () => {
                 <div className={styles.row}>
                     <div className={styles.field}>
                         <label htmlFor="name">
-                            Name
+                            Name <span className={styles.required} aria-label="required">*</span>
                         </label>
                         <input 
                             id="name" 
@@ -66,7 +66,7 @@ const ContactSection = () => {
 
                     <div className={styles.field}>
                         <label htmlFor="surname">
-                            Surname
+                            Surname <span className={styles.required} aria-label="required">*</span>
                         </label>
                         <input
                             id="surname" 
@@ -79,7 +79,7 @@ const ContactSection = () => {
 
                 <div className={styles.field}>
                     <label htmlFor="email">
-                        Email
+                        Email <span className={styles.required} aria-label="required">*</span>
                     </label>
                     <input 
                         id="email" 
@@ -92,7 +92,7 @@ const ContactSection = () => {
 
                 <div className={styles.field}>
                     <label htmlFor="message">
-                        Message
+                        Message <span className={styles.required} aria-label="required">*</span>
                     </label>
                     <textarea 
                         id="message" 
