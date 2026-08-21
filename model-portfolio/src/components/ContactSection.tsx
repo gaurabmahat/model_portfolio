@@ -72,63 +72,75 @@ const ContactSection = () => {
                 Contact
             </h2>
 
-            <form className={styles.form} onSubmit={handleSubmit} noValidate>
-                <div className={styles.row}>
+            {status === "sent" ? (
+                <p className={styles.success}>Thank You! Your message has been sent.</p>
+            ) : (
+                <form className={styles.form} onSubmit={handleSubmit} noValidate>
+                    <div className={styles.row}>
+                        <div className={styles.field}>
+                            <label htmlFor="name">
+                                Name <span className={styles.required} aria-label="required">*</span>
+                            </label>
+                            <input 
+                                id="name" 
+                                value={form.name}
+                                onChange={(e) => update('name', e.target.value)}
+                            />
+                            {errors.name && <span className={styles.error}>{errors.name}</span>}
+                        </div>
+
+                        <div className={styles.field}>
+                            <label htmlFor="surname">
+                                Surname <span className={styles.required} aria-label="required">*</span>
+                            </label>
+                            <input
+                                id="surname" 
+                                value={form.surname}
+                                onChange={(e) => update('surname', e.target.value)}
+                            />
+                            {errors.surname && <span className={styles.error}>{errors.surname}</span>}
+                        </div>
+                    </div>
+
                     <div className={styles.field}>
-                        <label htmlFor="name">
-                            Name <span className={styles.required} aria-label="required">*</span>
+                        <label htmlFor="email">
+                            Email <span className={styles.required} aria-label="required">*</span>
                         </label>
                         <input 
-                            id="name" 
-                            value={form.name}
-                            onChange={(e) => update('name', e.target.value)}
+                            id="email" 
+                            type="email" 
+                            value={form.email}
+                            onChange={(e) => update('email', e.target.value)}
                         />
-                        {errors.name && <span className={styles.error}>{errors.name}</span>}
+                        {errors.email && <span className={styles.error}>{errors.email}</span>}
                     </div>
 
                     <div className={styles.field}>
-                        <label htmlFor="surname">
-                            Surname <span className={styles.required} aria-label="required">*</span>
+                        <label htmlFor="message">
+                            Message <span className={styles.required} aria-label="required">*</span>
                         </label>
-                        <input
-                            id="surname" 
-                            value={form.surname}
-                            onChange={(e) => update('surname', e.target.value)}
+                        <textarea 
+                            id="message" 
+                            rows={5} 
+                            value={form.message}
+                            onChange={(e) => update('message', e.target.value)}
                         />
-                        {errors.surname && <span className={styles.error}>{errors.surname}</span>}
+                        {errors.message && <span className={styles.error}>{errors.message}</span>}
                     </div>
-                </div>
 
-                <div className={styles.field}>
-                    <label htmlFor="email">
-                        Email <span className={styles.required} aria-label="required">*</span>
-                    </label>
-                    <input 
-                        id="email" 
-                        type="email" 
-                        value={form.email}
-                        onChange={(e) => update('email', e.target.value)}
-                    />
-                    {errors.email && <span className={styles.error}>{errors.email}</span>}
-                </div>
+                    <div className={styles.statusMessage} aria-live="polite">
+                        {status === "error" && (
+                            <p className={styles.error}>
+                                Something went wrong, please try again.
+                            </p>
+                        )}
+                    </div>
 
-                <div className={styles.field}>
-                    <label htmlFor="message">
-                        Message <span className={styles.required} aria-label="required">*</span>
-                    </label>
-                    <textarea 
-                        id="message" 
-                        rows={5} 
-                        value={form.message}
-                        onChange={(e) => update('message', e.target.value)}
-                    />
-                    {errors.message && <span className={styles.error}>{errors.message}</span>}
-                </div>
-
-                <button type="submit" className={styles.submit} disabled={status === 'sending'}>
-                    {status === 'sending' ? 'Sending...' : 'Send'}
-                </button>
-            </form>
+                    <button type="submit" className={styles.submit} disabled={status === 'sending'}>
+                        {status === 'sending' ? 'Sending...' : 'Send'}
+                    </button>
+                </form>
+            )}
         </section>
     )
 }

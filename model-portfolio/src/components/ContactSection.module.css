@@ -102,6 +102,10 @@
     color: #b23628;
 }
 
+.statusMessage {
+    min-height: 16px;
+}
+
 @media (max-width: 600px) {
     .row {
         flex-direction: column;
