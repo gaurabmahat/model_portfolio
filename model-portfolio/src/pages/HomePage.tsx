@@ -2,6 +2,7 @@ import Header from "../components/Header";
 import HomeSection from "../components/HomeSection";
 import PhotosSection from "../components/PhotosSection";
 import AboutSection from "../components/AboutSection";
+import ContactSection from "../components/ContactSection";
 
 export default function HomePage() {
     return (
@@ -11,7 +12,7 @@ export default function HomePage() {
                 <HomeSection />
                 <PhotosSection />
                 <AboutSection />
-                <section id="contact" style={{ minHeight: "100vh"}}><h1>Contact</h1></section>
+                <ContactSection />
             </main>
         </div>
     )
