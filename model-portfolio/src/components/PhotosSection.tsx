@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { photos } from "../data/photos";
+import { photos } from "../data/photosSectionPhotos";
 import styles from "./PhotosSection.module.css";
 
 const PhotosSection = () => {
