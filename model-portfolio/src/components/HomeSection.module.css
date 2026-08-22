@@ -37,3 +37,15 @@
     color: var(--color-text);
     text-align: center;
 }
+
+@media (max-width: 600px) {
+    .imageWrapper {
+        flex: 0 0 70%;
+        padding: 1.25rem;
+        max-width: none;
+    }
+
+    .name {
+        font-size: clamp(1.1rem, 5.5vw, 1.8rem);
+    }
+}
