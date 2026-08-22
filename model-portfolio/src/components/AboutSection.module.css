@@ -1,12 +1,14 @@
 .about {
     padding: 1rem 3rem;
     background-color: var(--color-bg);
-    text-align: center;
+    text-align: left;
     scroll-margin-top: var(--header-height);
 }
 
 .inner {
     margin: 0 auto;
+    max-width: 1400px;
+    width: 100%;
 }
 
 .heading {
@@ -15,17 +17,29 @@
     letter-spacing: var(--tracking-nav);
     text-transform: uppercase;
     color: var(--color-text);
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
+    text-align: center;
 }
 
 .bio {
-    font-family: var(--font-heading, serif);
-    font-size: clamp(22px, 3vw, 30px);
-    font-weight: 400;
-    line-height: 1.5;
-    letter-spacing: -0.01em;
-    margin: 0 0 64px;
-    max-width: 620px;
+    width: 100%;
+}
+
+.bioRow {
+    font-family: var(--font-heading, sans-serif);
+    font-size: clamp(18px, 1.5vw, 22px);
+    font-weight: 500;
+    line-height: 1.7;
+    letter-spacing: 0;
+    color: var(--color-text);
+    margin: 0 0 20px;
+    max-width: none;
+    width: none;
+    text-align: center;
+}
+
+.bioRow:last-child {
+    margin-bottom: 48px;
 }
 
 .statRow {
@@ -66,6 +80,76 @@
     margin: 0;
 }
 
+.contactList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px 48px;
+    justify-content: center;
+}
+
+.contactItem {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+    text-align: center;
+}
+
+.contactLabel {
+    font-family: var(--font-body);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+}
+
+.contactValue {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 15px;
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+a.contactValue:hover {
+    text-decoration: underline;
+}
+
+.socialList {
+    list-style: none;
+    margin: 32px 0 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+}
+
+.socialLink {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.socialLink:hover {
+    transform: translateY(-2px);
+}
+
+.socialIcon {
+    width: 48px;
+    height: 48px;
+}
+
+.socialHandle {
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--color-text);
+}
+
 @media (max-width: 768px) {
     .about {
         padding: 88px 32px;
@@ -100,5 +184,10 @@
 
     .bio {
         margin-bottom: 48px;
+    }
+
+    .contactList {
+        flex-direction: column;
+        gap: 16px;
     }
 }
