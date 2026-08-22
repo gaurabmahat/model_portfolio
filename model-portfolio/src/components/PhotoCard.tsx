@@ -1,4 +1,4 @@
-import type { GalleryPhoto } from "../data/galleryPhotos";
+import type { GalleryPhoto } from "../data/fetchCloudinaryPhotos";
 import styles from "./PhotoCard.module.css";
 
 interface PhotoCardProps {
