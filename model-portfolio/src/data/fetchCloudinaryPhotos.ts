@@ -30,6 +30,12 @@ const CLOUDINARY_USER_NAME = "ffezyytu";
     }
 **/
 
+const CACHE_12_HRS: RequestInit = {
+    headers: {
+        'Cache-Control': 'max-age=43200, stale-while-revalidate=43200', 
+    },
+};
+
 export interface Photo {
     id: string;
     url: string;
@@ -44,7 +50,8 @@ interface CloudinaryResource {
 // Fetch all Gallery photos for the Gallery page.
 export async function fetchGalleryPhotos(): Promise<Photo[]> {
     const res = await fetch (
-        `https://res.cloudinary.com/${CLOUDINARY_USER_NAME}/image/list/gallery.json`
+        `https://res.cloudinary.com/${CLOUDINARY_USER_NAME}/image/list/gallery.json`,
+        CACHE_12_HRS
     );
 
     if(!res.ok) {
@@ -64,7 +71,8 @@ export async function fetchGalleryPhotos(): Promise<Photo[]> {
 // Fetch all photos for the Photo Section.
 export async function fetchPhotoSectionPhotos(): Promise<Photo[]> {
     const res = await fetch (
-        `https://res.cloudinary.com/${CLOUDINARY_USER_NAME}/image/list/photoSection.json`
+        `https://res.cloudinary.com/${CLOUDINARY_USER_NAME}/image/list/photoSection.json`,
+        CACHE_12_HRS
     )
 
     if(!res.ok) {
@@ -86,7 +94,8 @@ export async function fetchPhotoSectionPhotos(): Promise<Photo[]> {
 // Fetch the main profile picture.
 export async function fetchHomePagePhoto(): Promise<Photo> {
     const res = await fetch (
-        `https://res.cloudinary.com/${CLOUDINARY_USER_NAME}/image/list/homePage.json`
+        `https://res.cloudinary.com/${CLOUDINARY_USER_NAME}/image/list/homePage.json`,
+        CACHE_12_HRS
     )
 
     if(!res.ok) {
