@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import GalleryHeader from "../components/GalleryHeader";
-import { type GalleryPhoto, fetchGalleryPhotos } from "../data/galleryPhotos";
+import { type Photo, fetchGalleryPhotos } from "../data/fetchCloudinaryPhotos";
 import styles from "./GalleryPage.module.css";
 import PhotoCard from "../components/PhotoCard";
 
 type Status = "loading" | "loaded" | "error";
 
 export default function GalleryPage() {
-    const [photos, setPhotos] = useState<GalleryPhoto[]>([]);
+    const [photos, setPhotos] = useState<Photo[]>([]);
     const [status, setStatus] = useState<Status>("loading");
 
     useEffect(() => {
