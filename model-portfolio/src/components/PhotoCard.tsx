@@ -1,9 +1,9 @@
-import type { GalleryPhoto } from "../data/fetchCloudinaryPhotos";
+import type { Photo } from "../data/fetchCloudinaryPhotos";
 import styles from "./PhotoCard.module.css";
 
 interface PhotoCardProps {
-    photo: GalleryPhoto;
-    onClick?: (photo: GalleryPhoto) => void;
+    photo: Photo;
+    onClick?: (photo: Photo) => void;
 }
 
 const PhotoCard = ({ photo, onClick }: PhotoCardProps) => {
