@@ -63,7 +63,7 @@ export async function fetchGalleryPhotos(): Promise<Photo[]> {
 
     return resources.map((resource) => ({
         id: resource.public_id,
-        url: `https://res.cloudinary.com/${CLOUDINARY_USER_NAME}/image/upload/${resource.public_id}.${resource.format}`,
+        url: `https://res.cloudinary.com/${CLOUDINARY_USER_NAME}/image/upload/w_600,c_limit,q_auto,f_auto/${resource.public_id}.${resource.format}`,
         alt: "Ganga Mahat Gallery Photo",
     }));
 }
