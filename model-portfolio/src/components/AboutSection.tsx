@@ -1,6 +1,8 @@
 import { FaInstagram, FaTiktok } from "react-icons/fa";
 import { bio, stats, ModelContact,SocialMediaInfo } from "../data/modelInfo";
 import styles from "./AboutSection.module.css";
+import { useTranslation } from "react-i18next";
+import React from "react";
 
 const icons = {
     instagram: FaInstagram,
@@ -8,16 +10,18 @@ const icons = {
 }
 
 const AboutSection = () => {
+    const { t } = useTranslation();
+
     return (
         <section id="about" className={styles.about}>
             <div className={styles.inner}>
                 <h2 className={styles.heading}>
-                    About
+                    {t("about.sectionTitle")}
                 </h2>
                 <div className={styles.bio}>
                     {bio.map((paragraph, i) => (
                         <p key={i} className={styles.bioRow}>
-                            {paragraph}
+                            {t(paragraph)}
                         </p>
                     ))}
                 </div>
@@ -25,10 +29,10 @@ const AboutSection = () => {
                     {stats.map((stat) => (
                         <div key={stat.label} className={styles.stat}>
                             <dt className={styles.statLabel}>
-                                {stat.label}
+                                {t(stat.label)}
                             </dt>
                             <dd className={styles.statValue}>
-                                {stat.value}
+                                {t(stat.value)}
                             </dd>
                         </div>
                     ))}
@@ -37,8 +41,17 @@ const AboutSection = () => {
                 <ul className={styles.contactList}>
                     {ModelContact.map((contact) => (
                         <li key={contact.label} className={styles.contactItem}>
-                            <span className={styles.contactLabel}>{contact.label}</span>
-                            {contact.href ? (
+                            <span className={styles.contactLabel}>{t(contact.label)}</span>
+                            {Array.isArray(contact.value) ? (
+                                <span className={styles.contactValue}>
+                                    {contact.value.map((lang, index) => (
+                                        <React.Fragment key={lang.language}>
+                                            {lang.language} ({t(lang.languageLevel)})
+                                            {index < contact.value.length - 1 ? ", " : ""}
+                                        </React.Fragment>
+                                    ))}
+                                </span>
+                            ) : contact.href ? (
                                 <a
                                     href={contact.href}
                                     target="_blank"

@@ -1,4 +1,35 @@
 {
+    "about": {
+        "sectionTitle": "About",
+        "bio1": "Energetic and confident model fresh  in the industry who has  a strong interest in beauty, commercial and print modeling. Enthusiastic character and interest to learn new skills. Respecting  professionalism with creativity that enchance my work in modeling world.",
+        "bio2": "Versatile look and natural expression, confident presence in the set and runway, strong ability to adapt in various  artistic and creative concepts bringing authenticity and real presence in a project are my strengths.",
+        "stats": {
+            "height": "Height",
+            "dressSize": "Dress size",
+            "bust": "Bust",
+            "waist": "Waist",
+            "shoe": "Shoe",
+            "hair": {
+                "label": "Hair",
+                "value": "Golden Brown"
+            },
+            "eyes": {
+                "label": "Eyes",
+                "value": "Brown"
+            }
+        },
+        "contact": {
+            "location": "Location",
+            "phone": "Phone",
+            "email": "Email",
+            "language": {
+                "label": "Language",
+                "native": "Native",
+                "fluent": "Fluent",
+                "conversational": "Conversational"
+            }
+        }
+    },
     "contact": {
         "sectionTitle": "Contact Me",
         "form": {
