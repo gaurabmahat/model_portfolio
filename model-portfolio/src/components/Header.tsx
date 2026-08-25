@@ -4,6 +4,7 @@ import styles from "./Header.module.css";
 import { modelName } from "../data/modelInfo";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Header() {
 
@@ -23,6 +24,7 @@ export default function Header() {
                 {modelName}
             </Link>
             <nav className={`${styles.nav} ${menuOpen ? styles.navOpen : ""}`}>
+                <LanguageSwitcher />
                 {navItems.map((navItem) =>
                     navItem.type === "route" ? (
                         <Link key={t(navItem.label)} to={navItem.href} className={styles.navLink} onClick={closeMenu}>

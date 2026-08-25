@@ -1,0 +1,15 @@
+.switcher {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.switcher button {
+    background: none;
+    border: 1px solid var(--color-border);
+    padding: 0.25rem 0.6rem;
+    cursor: pointer;
+}
+
+.active {
+    font-weight: bold;
+}
