@@ -18,6 +18,12 @@
     "galleryHeader": {
         "backToHome": "Takaisin Etusivulle"
     },
+    "home": {
+        "errors": {
+            "loading": "Ladataan kuvia...",
+            "loadingError": "Kuvia ei voitu ladata. Yritä myöhemmin uudelleen."
+        }
+    },
     "nav": {
         "home": "Etusivu",
         "photos": "Kuvat",

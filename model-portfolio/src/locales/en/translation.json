@@ -18,6 +18,12 @@
     "galleryHeader": {
         "backToHome": "Back To Home"
     },
+    "home": {
+        "errors": {
+            "loading": "Loading photos...",
+            "loadingError": "Couldn't load the photos. Please try again later."
+        }
+    },
     "nav": {
         "home": "Home",
         "photos": "Photos",
