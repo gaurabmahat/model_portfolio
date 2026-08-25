@@ -1,4 +1,7 @@
 {
+    "galleryHeader": {
+        "backToHome": "Takaisin Etusivulle"
+    },
     "nav": {
         "home": "Etusivu",
         "photos": "Kuvat",
@@ -6,7 +9,12 @@
         "contact": "Ota Yhteyttä",
         "gallery": "Galleria"
     },
-    "galleryHeader": {
-        "backToHome": "Takaisin Etusivulle"
+    "photos": {
+        "sectionTitle": "Kuvat",
+        "viewAllGalleryLink": "Katso koko galleria",
+        "errors": {
+            "loading": "Ladataan kuvia...",
+            "loadingError": "Kuvia ei voitu ladata. Yritä myöhemmin uudelleen."
+        }
     }
 }

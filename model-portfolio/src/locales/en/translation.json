@@ -1,4 +1,7 @@
 {
+    "galleryHeader": {
+        "backToHome": "Back To Home"
+    },
     "nav": {
         "home": "Home",
         "photos": "Photos",
@@ -6,7 +9,12 @@
         "contact": "Contact Me",
         "gallery": "Gallery"
     },
-    "galleryHeader": {
-        "backToHome": "Back To Home"
+    "photos": {
+        "sectionTitle": "Photos",
+        "viewAllGalleryLink": "View Full Gallery",
+        "errors": {
+            "loading": "Loading photos...",
+            "loadingError": "Couldn't load the photos. Please try again later."
+        }
     }
 }
