@@ -3,10 +3,12 @@ import { navItems } from "../data/navItems";
 import styles from "./Header.module.css";
 import { modelName } from "../data/modelInfo";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function Header() {
 
     const [menuOpen, setMenuOpen] = useState(false);
+    const { t } = useTranslation();
     
     const scrollToSection = (id: string) => {
         document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -21,18 +23,18 @@ export default function Header() {
                 {modelName}
             </Link>
             <nav className={`${styles.nav} ${menuOpen ? styles.navOpen : ""}`}>
-                {navItems.map((item) =>
-                    item.type === "route" ? (
-                        <Link key={item.label} to={item.href} className={styles.navLink} onClick={closeMenu}>
-                            {item.label}
+                {navItems.map((navItem) =>
+                    navItem.type === "route" ? (
+                        <Link key={t(navItem.label)} to={navItem.href} className={styles.navLink} onClick={closeMenu}>
+                            {t(navItem.label)}
                         </Link>
                     ) : (
                         <button
-                            key={item.label}
+                            key={t(navItem.label)}
                             className={styles.navLink}
-                            onClick={() => scrollToSection(item.href)}
+                            onClick={() => scrollToSection(navItem.href)}
                         >
-                            {item.label}
+                            {t(navItem.label)}
                         </button>
                     )
                 )}

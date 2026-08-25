@@ -1,1 +1,9 @@
-{}
+{
+    "nav": {
+        "home": "Etusivu",
+        "photos": "Kuvat",
+        "about": "Meistä",
+        "contact": "Ota Yhteyttä",
+        "gallery": "Galleria"
+    }
+}
