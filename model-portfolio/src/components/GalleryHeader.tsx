@@ -11,10 +11,12 @@ export default function Header() {
             <Link to="/" className={styles.logo}>
                 {modelName}
             </Link>
-            <LanguageSwitcher />
-            <Link to="/" className={styles.link}>
-                {t("galleryHeader.backToHome")}
-            </Link>
+            <div className={styles.actions}>
+                <LanguageSwitcher />
+                <Link to="/" className={styles.link}>
+                    {t("galleryHeader.backToHome")}
+                </Link>
+            </div>
         </header>
     )
 }
