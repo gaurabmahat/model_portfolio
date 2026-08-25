@@ -2,12 +2,14 @@ import { useEffect, useState } from "react"
 import { modelName } from "../data/modelInfo"
 import styles from "./HomeSection.module.css"
 import { fetchHomePagePhoto, type Photo } from "../data/fetchCloudinaryPhotos"
+import { useTranslation } from "react-i18next";
 
 type Status = "loading" | "loaded" | "error";
 
 const HomeSection = () => {
     const [photo, setPhoto] = useState<Photo>();
     const [status, setStatus] = useState<Status>("loading");
+    const { t } = useTranslation();
 
     useEffect(() => {
         fetchHomePagePhoto()
@@ -22,8 +24,8 @@ const HomeSection = () => {
     return (
         <section id="home" className={styles.home}>
             <div className={styles.imageWrapper}>
-                {status === "loading" && <p>Loading photos...</p>}
-                {status === "error" && <p>Couldn't load the photo. Please try again later.</p>}
+                {status === "loading" && <p>{t("home.errors.loading")}</p>}
+                {status === "error" && <p>{t("home.errors.loadingError")}</p>}
                 {status === "loaded" &&
                     <img src={photo?.url} alt={photo?.alt} className={styles.image} />
                 }

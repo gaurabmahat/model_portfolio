@@ -5,9 +5,9 @@ export interface NavItem {
 }
 
 export const navItems: NavItem[] = [
-    {label: "Home", href: "home", type: "scroll"},
-    {label: "Photos", href: "photos", type: "scroll"},
-    {label: "About", href: "about", type: "scroll"},
-    {label: "Contact", href: "contact", type: "scroll"},
-    {label: "Gallery", href: "/gallery", type: "route"},
+    {label: "nav.home", href: "home", type: "scroll"},
+    {label: "nav.photos", href: "photos", type: "scroll"},
+    {label: "nav.about", href: "about", type: "scroll"},
+    {label: "nav.contact", href: "contact", type: "scroll"},
+    {label: "nav.gallery", href: "/gallery", type: "route"},
 ]

@@ -2,12 +2,14 @@ import { Link } from "react-router-dom";
 import { fetchPhotoSectionPhotos, type Photo } from "../data/fetchCloudinaryPhotos";
 import styles from "./PhotosSection.module.css";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 type Status = "loading" | "loaded" | "error";
 
 const PhotosSection = () => {
     const [photos, setPhotos] = useState<Photo[]>([]);
     const [status, setStatus] = useState<Status>("loading");
+    const { t } = useTranslation();
 
     useEffect(() => {
         fetchPhotoSectionPhotos()
@@ -22,10 +24,10 @@ const PhotosSection = () => {
 
     return (
         <section id="photos" className={styles.photos}>
-            <h2 className={styles.heading}>Photos</h2>
+            <h2 className={styles.heading}>{t("photos.sectionTitle")}</h2>
             <div className={styles.grid}>
-                {status === "loading" && <p>Loading photos...</p>}
-                {status === "error" && <p>Couldn't load the photos. Please try again later.</p>}
+                {status === "loading" && <p>{t("photos.errors.loading")}</p>}
+                {status === "error" && <p>{t("photos.errors.loadingError")}</p>}
                 {status === "loaded" &&
                 photos.map((photo) => (
                     <div key={photo.id} className={styles.card}>
@@ -34,7 +36,7 @@ const PhotosSection = () => {
                 ))}
             </div>
             <Link to="/gallery" className={styles.viewAll}>
-                View Full Gallery
+                {t("photos.viewAllGalleryLink")}
             </Link>
         </section>
     )

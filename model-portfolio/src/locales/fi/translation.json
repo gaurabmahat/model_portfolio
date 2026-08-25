@@ -1,0 +1,73 @@
+{
+    "about": {
+        "sectionTitle": "Meistä",
+        "bio1": "Innostunut ja varmaoteinen uusi kasvo alalla. Olen erittäin kiinnostunut kauneus-, kaupallisesta ja printtimallintyöstä. Motivoitunut asenteeni ja haluni oppia uutta yhdistyvät ammattimaisuuteen sekä luovuuteen, jotka tuovat lisäarvoa jokaiseen malliprojektiin.",
+        "bio2": "Vahvuuksiani ovat monipuolinen ulkonäkö, luonteva ilmeikkyys sekä varma esiintyminen kuvauksissa ja näytöslavalla. Sopeudun helposti erilaisiin taiteellisiin ja luoviin konsepteihin tuoden projekteihin aitoa läsnäoloa.",
+        "stats": {
+            "height": "Pituus",
+            "dressSize": "Vaatekoko",
+            "bust": "Rinnanympärys",
+            "waist": "Vyötärö",
+            "shoe": "Kengännumero",
+            "hair": {
+                "label": "Hiukset",
+                "value": "Kullanruskea"
+            },
+            "eyes": {
+                "label": "Silmät",
+                "value": "Ruskea"
+            }
+        },
+        "contact": {
+            "location": "Sijainti",
+            "phone": "Puhelin",
+            "email": "Sähköposti",
+            "language": {
+                "label": "Kielitaito",
+                "native": "Äidinkieli",
+                "fluent": "Sujuva",
+                "conversational": "Perustaidot"
+            }
+        }
+    },
+    "contact": {
+        "sectionTitle": "Ota Yhteyttä",
+        "form": {
+            "name": "Etunimi",
+            "surname": "Sukunimi",
+            "email": "Sähköposti",
+            "message": "Viesti"
+        },
+        "formValidation": {
+           "required": "Pakollinen kenttä",
+           "validEmail": "Syötä voimassa oleva sähköpostiosoite",
+           "messageShort": "Viesti on liian lyhyt" 
+        },
+        "messageSendSuccess": "Kiitos! Viestisi on lähetetty.",
+        "messageSendError": "Jokin meni pieleen. Yritä uudelleen."
+    },
+    "galleryHeader": {
+        "backToHome": "Takaisin Etusivulle"
+    },
+    "home": {
+        "errors": {
+            "loading": "Ladataan kuvia...",
+            "loadingError": "Kuvia ei voitu ladata. Yritä myöhemmin uudelleen."
+        }
+    },
+    "nav": {
+        "home": "Etusivu",
+        "photos": "Kuvat",
+        "about": "Meistä",
+        "contact": "Ota Yhteyttä",
+        "gallery": "Galleria"
+    },
+    "photos": {
+        "sectionTitle": "Kuvat",
+        "viewAllGalleryLink": "Katso koko galleria",
+        "errors": {
+            "loading": "Ladataan kuvia...",
+            "loadingError": "Kuvia ei voitu ladata. Yritä myöhemmin uudelleen."
+        }
+    }
+}

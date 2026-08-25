@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type React from "react";
 import styles from "./ContactSection.module.css";
+import { useTranslation } from "react-i18next";
 
 type Status = 'idle' | 'sending' | 'sent' | 'error';
 const web3formsAccessCode = "2a4ba48d-71a0-49ce-aeaf-2a2461b270f2"
@@ -15,6 +16,7 @@ const ContactSection = () => {
     });
     const [status, setStatus] = useState<Status>('idle');
     const [errors, setErrors] = useState<Record<string, string>>({});
+    const { t } = useTranslation();
 
     function update(field: keyof typeof form, value: string) {
         setForm((prev) => ({ ...prev, [field]: value }))
@@ -23,10 +25,10 @@ const ContactSection = () => {
     function validation() {
         const next: Record<string, string> = {}
 
-        if (!form.name.trim()) next.name = 'Required';
-        if (!form.surname.trim()) next.surname = 'Required';
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) next.email = 'Enter a valid email';
-        if (form.message.trim().length < 2) next.message = 'Message is too short';
+        if (!form.name.trim()) next.name = t("contact.formValidation.required");
+        if (!form.surname.trim()) next.surname = t("contact.formValidation.required");
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) next.email = t("contact.formValidation.validEmail");
+        if (form.message.trim().length < 2) next.message = t("contact.formValidation.messageShort");
 
         setErrors(next);
         return Object.keys(next).length === 0;
@@ -72,11 +74,11 @@ const ContactSection = () => {
     return (
         <section id="contact" className={styles.contact}>
             <h2 className={styles.heading}>
-                Contact
+                {t("contact.sectionTitle")}
             </h2>
 
             {status === "sent" ? (
-                <p className={styles.success}>Thank You! Your message has been sent.</p>
+                <p className={styles.success}>{t("contact.messageSendSuccess")}</p>
             ) : (
                 <form className={styles.form} onSubmit={handleSubmit} noValidate>
                     <input 
@@ -90,7 +92,7 @@ const ContactSection = () => {
                     <div className={styles.row}>
                         <div className={styles.field}>
                             <label htmlFor="name">
-                                Name <span className={styles.required} aria-label="required">*</span>
+                                {t("contact.form.name")} <span className={styles.required} aria-label="required">*</span>
                             </label>
                             <input 
                                 id="name"
@@ -103,7 +105,7 @@ const ContactSection = () => {
 
                         <div className={styles.field}>
                             <label htmlFor="surname">
-                                Surname <span className={styles.required} aria-label="required">*</span>
+                                {t("contact.form.surname")} <span className={styles.required} aria-label="required">*</span>
                             </label>
                             <input
                                 id="surname"
@@ -117,7 +119,7 @@ const ContactSection = () => {
 
                     <div className={styles.field}>
                         <label htmlFor="email">
-                            Email <span className={styles.required} aria-label="required">*</span>
+                            {t("contact.form.email")} <span className={styles.required} aria-label="required">*</span>
                         </label>
                         <input 
                             id="email" 
@@ -131,7 +133,7 @@ const ContactSection = () => {
 
                     <div className={styles.field}>
                         <label htmlFor="message">
-                            Message <span className={styles.required} aria-label="required">*</span>
+                            {t("contact.form.message")} <span className={styles.required} aria-label="required">*</span>
                         </label>
                         <textarea 
                             id="message"
@@ -146,7 +148,7 @@ const ContactSection = () => {
                     <div className={styles.statusMessage} aria-live="polite">
                         {status === "error" && (
                             <p className={styles.error}>
-                                Something went wrong, please try again.
+                                {t("contact.messageSendError")}
                             </p>
                         )}
                     </div>

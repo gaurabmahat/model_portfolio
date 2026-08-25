@@ -1,36 +1,47 @@
 export const modelName = "Ganga Mahat";
-export const homeImage = "https://res.cloudinary.com/ffezyytu/image/upload/w_500,h_650,c_fill,g_auto,q_auto,f_auto/v1787388090/HomePageImage.jpg";
 
 type Stat = {
     label: string;
     value: string;
 }
 export const stats: Stat[] = [
-    { label: "Height", value: "160 cm" },
-    { label: "Dress size", value: "38-40" },
-    { label: "Bust", value: "98 cm" },
-    { label: "Waist", value: "107 cm" },
-    { label: "Shoe", value: "39 EU" },
-    { label: "Hair", value: "Golden Brown" },
-    { label: "Eyes", value: "Brown" },
+    { label: "about.stats.height", value: "160 cm" },
+    { label: "about.stats.dressSize", value: "38-40" },
+    { label: "about.stats.bust", value: "98 cm" },
+    { label: "about.stats.waist", value: "107 cm" },
+    { label: "about.stats.shoe", value: "39 EU" },
+    { label: "about.stats.hair.label", value: "about.stats.hair.value" },
+    { label: "about.stats.eyes.label", value: "about.stats.eyes.value" },
 ]
 
 export const bio = [
-    "Energetic and confident model fresh  in the industry who has  a strong interest in beauty, commercial and print modeling. Enthusiastic character and interest to learn new skills. Respecting  professionalism with creativity that enchance my work in modeling world.",
-    "Versatile look and natural expression, confident presence in the set and runway, strong ability to adapt in various  artistic and creative concepts bringing authenticity and real presence in a project are my strengths."
+    "about.bio1",
+    "about.bio2"
+]
+
+type Language = {
+    language: string;
+    languageLevel: string; 
+}
+
+const LanguageAndLevel: Language[] = [
+    {language: "Finnish", languageLevel: "about.contact.language.fluent"},
+    {language: "English", languageLevel: "about.contact.language.fluent"},
+    {language: "Nepali", languageLevel: "about.contact.language.native"},
+    {language: "Hindi", languageLevel: "about.contact.language.conversational"},
 ]
 
 type ModelContactInfo = {
     label: string;
-    value: string;
+    value: string | Language[];
     href?: string;
 }
 
 export const ModelContact: ModelContactInfo[] = [
-    { label: "Location", value: "Helsinki, Finland" },
-    { label: "Phone", value: "+358452753108", href: "tel:+358452753108" },
-    { label: "Email", value: "gangamahat507@gmail.com" },
-    { label: "Language", value: "Finnish (Fluent), English (Fluent), Nepali (Native), Hindi (Conversational)" },
+    { label: "about.contact.location", value: "Helsinki, Finland" },
+    { label: "about.contact.phone", value: "+358452753108", href: "tel:+358452753108" },
+    { label: "about.contact.email", value: "gangamahat507@gmail.com" },
+    { label: "about.contact.language.label", value: LanguageAndLevel },
 ]
 
 type ModelSocialMedias = {
