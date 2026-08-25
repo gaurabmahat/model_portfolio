@@ -1,4 +1,20 @@
 {
+    "contact": {
+        "sectionTitle": "Contact Me",
+        "form": {
+            "name": "Name",
+            "surname": "Surname",
+            "email": "Email",
+            "message": "Message"
+        },
+        "formValidation": {
+           "required": "Required",
+           "validEmail": "Enter a valid email",
+           "messageShort": "Message is too short" 
+        },
+        "messageSendSuccess": "Thank You! Your message has been sent.",
+        "messageSendError": "Something went wrong, please try again."
+    },
     "galleryHeader": {
         "backToHome": "Back To Home"
     },

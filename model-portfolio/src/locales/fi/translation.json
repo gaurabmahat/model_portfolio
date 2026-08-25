@@ -1,4 +1,20 @@
 {
+    "contact": {
+        "sectionTitle": "Ota Yhteyttä",
+        "form": {
+            "name": "Etunimi",
+            "surname": "Sukunimi",
+            "email": "Sähköposti",
+            "message": "Viesti"
+        },
+        "formValidation": {
+           "required": "Pakollinen kenttä",
+           "validEmail": "Syötä voimassa oleva sähköpostiosoite",
+           "messageShort": "Viesti on liian lyhyt" 
+        },
+        "messageSendSuccess": "Kiitos! Viestisi on lähetetty.",
+        "messageSendError": "Jokin meni pieleen. Yritä uudelleen."
+    },
     "galleryHeader": {
         "backToHome": "Takaisin Etusivulle"
     },
