@@ -1,15 +1,35 @@
 .switcher {
     display: flex;
     gap: 0.5rem;
+    align-items: center;
 }
 
-.switcher button {
+.flagButton {
     background: none;
-    border: 1px solid var(--color-border);
-    padding: 0.25rem 0.6rem;
+    border: none;
+    padding: 2px;
     cursor: pointer;
+    border-radius: 4px;
+    line-height: 0;
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+}
+
+.flagButton:hover {
+    opacity: 0.9;
 }
 
 .active {
-    font-weight: bold;
+    opacity: 1;
+    outline: 1.5px solid var(--color-text);
+    outline-offset: 2px;
+}
+
+.flagIcon {
+    width: 24px;
+    height: 18px;
+    border-radius: 2px;
+    display: block;
+    background-size: cover;
+    background-position: center;
 }

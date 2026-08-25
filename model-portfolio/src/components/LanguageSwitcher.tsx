@@ -1,6 +1,11 @@
 import { useTranslation } from "react-i18next";
 import styles from "./LanguageSwitcher.module.css";
 
+const LANGUAGES = [
+    { code: "en", flag: "gb", label: "English" },
+    { code: "fi", flag: "fi", label: "Suomi" },
+] as const;
+
 const LanguageSwitcher = () => {
     const { i18n } = useTranslation();
 
@@ -11,18 +16,18 @@ const LanguageSwitcher = () => {
 
     return (
         <div className={styles.switcher}>
-            <button
-                onClick={() => changeLanguage("en")}
-                className={i18n.language === "en" ? styles.active : ""}
-            >
-                EN
-            </button>
-            <button
-                onClick={() => changeLanguage("fi")}
-                className={i18n.language === "fi" ? styles.active : ""}
-            >
-                FI
-            </button>
+            {LANGUAGES.map((language) => (
+                <button
+                    key={language.code}
+                    onClick={() => changeLanguage(language.code)}
+                    className={`${styles.flagButton} ${i18n.language === language.code ? styles.active : ""}`}
+                    aria-label={`Switch to ${language.label}`}
+                    aria-pressed={i18n.language === language.code}
+                    title={language.label}
+                >
+                    <span className={`fi fi-${language.flag} ${styles.flagIcon}`} />
+                </button>
+            ))}
         </div>
     )
 }
