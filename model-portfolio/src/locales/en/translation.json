@@ -5,5 +5,8 @@
         "about": "About",
         "contact": "Contact Me",
         "gallery": "Gallery"
+    },
+    "galleryHeader": {
+        "backToHome": "Back To Home"
     }
 }

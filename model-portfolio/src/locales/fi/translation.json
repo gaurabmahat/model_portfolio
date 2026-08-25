@@ -5,5 +5,8 @@
         "about": "Meistä",
         "contact": "Ota Yhteyttä",
         "gallery": "Galleria"
+    },
+    "galleryHeader": {
+        "backToHome": "Takaisin Etusivulle"
     }
 }
