@@ -40,6 +40,8 @@ export interface Photo {
     id: string;
     url: string;
     alt: string;
+    publicId: string;
+    format: string;
 }
 
 interface CloudinaryResource {
@@ -65,7 +67,13 @@ export async function fetchGalleryPhotos(): Promise<Photo[]> {
         id: resource.public_id,
         url: `https://res.cloudinary.com/${CLOUDINARY_USER_NAME}/image/upload/w_600,c_limit,q_auto,f_auto/${resource.public_id}.${resource.format}`,
         alt: "Ganga Mahat Gallery Photo",
+        publicId: resource.public_id,
+        format: resource.format,
     }));
+}
+
+export function getHighQualityUrl (photo: Photo): string {
+    return `https://res.cloudinary.com/${CLOUDINARY_USER_NAME}/image/upload/q_auto:best,f_auto/${photo.publicId}.${photo.format}`
 }
 
 // Fetch all photos for the Photo Section.
@@ -88,6 +96,8 @@ export async function fetchPhotoSectionPhotos(): Promise<Photo[]> {
             id: resource.public_id,
             url: `https://res.cloudinary.com/${CLOUDINARY_USER_NAME}/image/upload/w_500,h_650,c_fill,g_north,q_auto,f_auto/${resource.public_id}.${resource.format}`,
             alt: "Ganga Mahat Photo Section Photos",
+            publicId: resource.public_id,
+            format: resource.format,
         }));
 }
 
@@ -114,5 +124,7 @@ export async function fetchHomePagePhoto(): Promise<Photo> {
         id: resource.public_id,
         url: `https://res.cloudinary.com/${CLOUDINARY_USER_NAME}/image/upload/${resource.public_id}.${resource.format}`,
         alt: "Ganga Mahat Home Page Profile picture",
+        publicId: resource.public_id,
+        format: resource.format,
     };
 }
